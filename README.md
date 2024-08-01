@@ -47,6 +47,8 @@ The `Graph` class represents a graph using an adjacency matrix. It provides meth
 - `Graph operator++(int)`: Postfix increment operator.
 - `Graph& operator--()`: Prefix decrement operator.
 - `Graph operator--(int)`: Postfix decrement operator.
+- `Graph operator+() const`: Unary plus operator.
+- `Graph operator-() const`: Unary minus operator.
 - `bool operator==(const Graph& other) const`: Checks if two graphs are equal.
 - `bool operator!=(const Graph& other) const`: Checks if two graphs are not equal.
 - `bool operator<(const Graph& other) const`: Checks if one graph is strictly contained in another.
