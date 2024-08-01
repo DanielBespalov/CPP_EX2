@@ -1,3 +1,9 @@
+/*
+ * Author: Daniel Bespalov
+ * ID: 213446479
+ * Mail: danieldaniel2468@gmail.com
+ */
+
 #include "doctest.h"
 #include "Algorithms.hpp"
 #include "Graph.hpp"
