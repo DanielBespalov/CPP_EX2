@@ -1,23 +1,76 @@
 # מטלה 2 - גרפים והעמסת אופרטורים
 
-במטלה הקודמת מימשתם את המחלקה `Graph.cpp` המאפשרת ייצוג של גרפים בעזרת מטריצת שכנויות. במטלה הזאת, אתם תרחיבו את המחלקה ותוסיפו תמיכה באופרטורים חשבוניים על גרפים.
-כאמור, הגרפים מיוצגים בעזרת מטריצת שכנויות, לכן כל האופרטורים צריכים להיות חוקיים עבור מטריצות (כמו שלמדתם בקורס אלגברה לינארית).
+# Graph Algorithms Library
 
-אתם תצטרכו להוסיף את האופרטורים הבאים:
+## Author
+Daniel Bespalov
 
-- שישה אופרטורים חשבוניים: חיבור (+) הוספה (+=) פלוס אונרי (+), ושלושת האופרטורים המקבילים לחיסור (-). כאמור, חיבור/חיסור של שתי מטריצות מוגדר רק על מטריצות מאותו סדר גודל nXn. ניסיון לחבר/לחסר שתי מטריצות שלא מקיימות תנאי זה יגרום לזריקת שגיאה.
-- שישה אופרטורי השוואה: גדול, גדול-או-שווה, קטן, קטן-או-שווה, שווה, לא-שווה. לשם מטלה זו כללי השוואת גרפים הם כדלקמן:
+## ID
+213446479
 
-  1. גרפים G1 ו-G2 ייקראו שווים אם הם מאותו סדר גודל ומכילים את אותן הצלעות (והמשקלים של הצלעות זהים) או אם G1 לא גדול מ-G2 וגם G2 לא גדול מ-G1.
-  2. גרף G2 גדול מגרף G1 אם הגרף G1 מוכל ממש בגרף G2. אם אף גרף לא מוכל ממש בשני והגרפים לא שווים, אז גרף G2 גדול מגרף G1 אם מספר הצלעות ב-G2 גדול ממספר הצלעות ב-G1. אם בכל זאת מספר הצלעות זהה, אז הגרף G2 גדול מהגרף G1 אם המטריצה המייצגת של G2 בעלת סדר גודל גבוה יותר משל G1.
+## Mail
+danieldaniel2468@gmail.com
 
-- הגדלה ב-1 (++) והקטנה ב-1 (--) לפני ואחרי המספר. פעולה זו תגדיל או תקטין ב-1 את כל המשקלים של הצלעות בגרף.
-- הכפלה בסקלר שלם (`int`) - מכפיל את המשקל של כל הצלעות.
-- הכפלת גרפים - אנחנו מגדירים את פעולת הכפל בין גרף G1 לגרף G2 על ידי מכפלה של המטריצות המייצגות של שני הגרפים. התוצאה צריכה להיות מטריצה המייצגת גרף. ניסיון לבצע כפל בין גרפים בגדלים שונים צריך לזרוק שגיאה.
-- אופרטור פלט - הדפסה הגיונית של הגרף (צורת ההפדסה היא לשיקולכם).
+## Overview
 
+This repository contains implementations of graph algorithms using C++. The `Graph` class represents a graph using an adjacency matrix, and the `Algorithms` class provides various graph algorithms such as BFS, DFS, cycle detection, bipartite check, and shortest path finding.
 
-כמו כן, עליכם לכלול גם את הקובץ `Algorithms.cpp` מהמטלה הקודמת ולראות כיצד הפונקציות שהגדרתם בפעם הקודמת משתנות עכשיו. בנוסף לקבצים של המטלה אתם נדרשים להגיש גם קובץ README המתאר את אופן המימוש ואת החלוקה שביצעתם בקוד (סוג של מדריך משתמש).
-עליכם לכתוב בתחילת כל קובץ את המייל שלכם. אי עמידה בהנחיות תגרור הפחתה בציון.
-בהצלחה!
+## Features
+
+- Graph representation using an adjacency matrix.
+- Graph operations such as addition, subtraction, multiplication, and scalar division.
+- Various graph algorithms including BFS, DFS, cycle detection, bipartite check, and shortest path finding.
+- Operator overloading for graph comparison and arithmetic operations.
+- Output graph information as a string.
+
+## Classes
+
+### Graph
+
+The `Graph` class represents a graph using an adjacency matrix. It provides methods to load a graph, get the number of vertices and edges, and various overloaded operators.
+
+#### Methods
+
+- `void loadGraph(const std::vector<std::vector<int>>& matrix)`: Loads the graph from an adjacency matrix.
+- `unsigned int getVerts() const`: Returns the number of vertices.
+- `unsigned int getEdges() const`: Returns the number of edges.
+- `std::vector<std::vector<int>> getGraph() const`: Returns the adjacency matrix of the graph.
+- `std::string printGraph() const`: Returns a string representation of the graph.
+
+#### Operators
+
+- `Graph operator+(const Graph& other) const`: Adds two graphs.
+- `Graph operator-(const Graph& other) const`: Subtracts one graph from another.
+- `Graph operator*(const Graph& other) const`: Multiplies two graphs.
+- `Graph operator/(int scalar) const`: Divides the graph by a scalar.
+- `Graph& operator++()`: Prefix increment operator.
+- `Graph operator++(int)`: Postfix increment operator.
+- `Graph& operator--()`: Prefix decrement operator.
+- `Graph operator--(int)`: Postfix decrement operator.
+- `bool operator==(const Graph& other) const`: Checks if two graphs are equal.
+- `bool operator!=(const Graph& other) const`: Checks if two graphs are not equal.
+- `bool operator<(const Graph& other) const`: Checks if one graph is strictly contained in another.
+- `bool operator<=(const Graph& other) const`: Checks if one graph is contained in another.
+- `bool operator>(const Graph& other) const`: Checks if one graph contains another.
+- `bool operator>=(const Graph& other) const`: Checks if one graph contains or is equal to another.
+- `Graph& operator+=(const Graph& other)`: Adds another graph to this graph.
+- `Graph& operator-=(const Graph& other)`: Subtracts another graph from this graph.
+- `Graph& operator*=(const Graph& other)`: Multiplies this graph with another graph.
+
+### Algorithms
+
+The `Algorithms` class provides various graph algorithms including BFS, DFS, cycle detection, bipartite check, and shortest path finding.
+
+#### Methods
+
+- `int isConnected(const Graph& g)`: Checks if the graph is connected.
+- `std::string shortestPath(const Graph& g, unsigned long start, unsigned long end)`: Finds the shortest path between two vertices using BFS.
+- `int isContainsCycle(const Graph& g)`: Checks if the graph contains a cycle.
+- `std::string isBipartite(const Graph& g)`: Checks if the graph is bipartite and returns the sets.
+- `std::string negativeCycle(const Graph& g)`: Checks if the graph contains a negative cycle using the Bellman-Ford algorithm.
+
+## Usage
+
+To run this project, type 'make' in the terminal and will run the tests.
+
 
